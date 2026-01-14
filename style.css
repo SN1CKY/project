@@ -4,15 +4,24 @@ body {
 * {
   text-decoration: none;
 }
+header{
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  background-color: rgb(252, 238, 221);
+  height: 6vh;
+}
 .navbar {
   padding-left: 40px;
   padding-right: 40px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 10px;
+ 
+ 
 }
 .navdiv {
   display: flex;
-  align-items: center;
+  
   justify-content: space-between;
 }
 .logo a {
@@ -30,7 +39,6 @@ li a {
   font-weight: bold;
   margin-right: 25px;
 }
-
 .startpage {
   display: grid;
   width: 1200px;
@@ -41,6 +49,11 @@ li a {
   padding: 40px;
   font-size: 25px;
 }
+path  {
+    fill: #E0BE9A;
+    stroke: #5B4D43;
+}
+
 .startpage .kata img{
 
   height: 100%;
@@ -132,7 +145,7 @@ li a {
 
 .About {
   font-size: 30px;
-  height: 250px;
+  height: 100%;
   justify-content: center;
   color: #5b4a3a;
 }
@@ -187,7 +200,7 @@ li a {
   text-align: center;
   color: #5b4a3a;
   height: 682px;
-  background-image: url(./animals.png);
+  background-image: url(./pictures/animals.png);
 }
 
 .button {
@@ -207,82 +220,78 @@ li a {
   padding-top: 25px;
   padding-left: 38px;
   color: #5b4a3a;
-  background-color: rgb(240, 193, 132);
-
-  height: 770px;
-  width: 800px;
+  background-color: rgb(224,190,154);
+  
+  /* height: 770px;
+  width: 800px; */
+  height: 100%;
+  width: 100%;
+  font-size: 24px;
+  height: auto;
 }
 .WhyUs h4 {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .comment {
-  background-color: #5b4a3a;
-
+  background-color: rgb(91,77,67);
   width: 100%;
   justify-content: center;
   display: flex;
   flex-direction: column;
-  gap: 35px;
+  gap: 30px;
   align-items: center;
-  padding-top: 30px;
+  padding: 20px 0px;
 }
 
 .recommendations1 {
   background-color: white;
-  height: 205px;
-  width: 365px;
+  height: 32%;
+  width: 50%;
   padding: 25px;
 }
 
 .recommendations2 {
   background-color: white;
-  height: 205px;
-  width: 365px;
+ height: 32%;
+  width: 50%;
   padding: 25px;
 }
 
 .recommendations3 {
   background-color: white;
-  height: 205px;
-  width: 365px;
+  height: 32%;
+  width: 50%;
   padding: 25px;
 }
 
 .cube {
-  display: grid;
-  padding: 0px 25px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  
+  padding: 0px 5px;
   width: 100%;
   height: 100%;
+  /* height: 85vh; */
+  
+  
 }
 
 .Contact {
   display: flex;
   flex-direction: column;
-  gap: 125px;
+  gap: 20%;
   padding-left: 35px;
   padding-top: 25px;
-  background-color: #5b4a3a;
-  margin: 10px;
+  background-color: rgb(91,77,67);
   color: white;
   font-weight: bold;
-  width: 774px;
-  height: 500px;
-}
-.Contact img {
-  height: 210px;
-  width: 150px;
+  
 }
 
 h3 {
   text-align: center;
   margin-bottom: 40px;
   font-weight: 500;
-}
-
-form {
-  width: 100%;
 }
 
 .row {
@@ -310,7 +319,7 @@ label {
 }
 
 input {
-  width: 100%;
+  width: 60%;
   border: none;
   border-bottom: 1px solid #999;
   background: transparent;
@@ -324,7 +333,7 @@ input:focus {
 }
 
 button {
-  width: 100%;
+  width: 70%;
   background: #d9ff4a;
   border: none;
   border-radius: 30px;
@@ -335,10 +344,23 @@ button {
 }
 
 .sakontakto {
-  display: flex;
-  gap: 206px;
-  margin-top: -20px;
-  margin-left: -20px;
+  display: grid;
+  grid-template-columns: 1.21fr 1fr;
+  width: 100%;
+  /* height:50vh; */
+  max-height: 100%;
+  gap: 7%;
+}
+
+.form-wrapper .forma .input{
+  grid-template-columns: 1fr;
+  display: grid;
+}
+
+footer{
+  margin-top: 2%;
+  width: 100%;
+  height: 100%;
 }
 
 .foot1 {
@@ -357,7 +379,8 @@ button {
 
 .foot2 {
   display: flex;
-  gap: 185px;
+  gap: 20%;
+  margin-left: 20px;
 }
 
 .foot,
@@ -369,7 +392,7 @@ button {
 }
 
 .subscribe {
-  width: 100%;
+  width: 63%;
   background: #d9ff4a;
   border: none;
   border-radius: 30px;
@@ -425,9 +448,38 @@ button {
 }
 
 .cube{
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   padding: 0%;
 }
+
+.sakontakto{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0%;
+}
+
+.form-wrapper .forma {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin: 5%;
+  align-items: center;
+
+}
+
+.foot{
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+ .foot .foot2 .rules {
+    grid-row: 2;
+    grid-column: 1;
+  }
+
+  .foot .foot2 .stay-connected {
+    grid-row: 3;
+    grid-column: 1;
+  }
+  
   
 }
