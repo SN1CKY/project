@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./cddf.css" />
+    <link rel="stylesheet" href="./zero.css" />
+    <title>Pet Food Manufactor</title>
+    <picture></picture>
+  </head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo">
+          <a href="index.html">K. Bartholomew</a>
+        </div>
+        <div class="nav-links">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href=""><span class="cart">🛒 0</span></a></li>
+          </ul>
+        </div>
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="breadcrumb-nav">
+      <div class="breadcrumb">
+        <a href="./index.html">Home</a> / Chicken Delight Dog Food
+      </div>
+      <div class="prev-next">
+        <a href="#">< Prev</a>
+        <span>|</span>
+        <a href="#">Next ></a>
+      </div>
+    </div>
+
+    <div class="product">
+        <div class="product-image">
+            <img src="./pictures/chickenfood.png" alt="Dog Food">
+        </div>
+
+        <div class="product-info">
+            <h1>Chicken Delight Dog Food</h1>
+            <div class="price">€50.00</div>
+
+            <label>Weight *</label>
+            <select>
+                <option>Select</option>
+                <option>10 lbs</option>
+                <option>20 lbs</option>
+            </select>
+
+            <label class="quantity-label">Quantity *</label>
+            <div class="quantity">
+                <button onclick="decrease()">−</button>
+                <input type="text" id="qty" value="1" readonly>
+                <button onclick="increase()">+</button>
+            </div>
+
+            <button class="add-cart" onclick="addToCart()">Add to Cart</button>
+
+            <div class="social">
+                <span><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="color: rgb(0, 0, 0);"><path fill-rule="evenodd" d="M20,12 C20,7.58171875 16.4182812,4 12,4 C7.58171875,4 4,7.58171875 4,12 C4,15.9930312 6.92548437,19.3026562 10.75,19.9028125 L10.75,14.3125 L8.71875,14.3125 L8.71875,12 L10.75,12 L10.75,10.2375 C10.75,8.2325 11.9443437,7.125 13.7717187,7.125 C14.6469844,7.125 15.5625,7.28125 15.5625,7.28125 L15.5625,9.25 L14.5537187,9.25 C13.5599219,9.25 13.25,9.86667187 13.25,10.4993281 L13.25,12 L15.46875,12 L15.1140625,14.3125 L13.25,14.3125 L13.25,19.9028125 C17.0745156,19.3026562 20,15.9930312 20,12"></path></svg></span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="color: rgb(0, 0, 0);"><path fill-rule="evenodd" d="M12.0065717,4 C7.58483538,4 4,7.57014343 4,11.9737578 C4,15.3535811 6.10872669,18.2411971 9.08730314,19.4028063 C9.01481566,18.772781 8.95550773,17.801492 9.11366223,17.1124018 C9.25863719,16.4889392 10.0494097,13.1484925 10.0494097,13.1484925 C10.0494097,13.1484925 9.81217794,12.6694108 9.81217794,11.9671951 C9.81217794,10.858088 10.4579755,10.0311798 11.2619275,10.0311798 C11.9472637,10.0311798 12.2767523,10.5430754 12.2767523,11.1534124 C12.2767523,11.8359398 11.8418274,12.8597309 11.6111854,13.8113317 C11.420082,14.6054261 12.0131614,15.2551397 12.7973442,15.2551397 C14.2207347,15.2551397 15.3146367,13.7588296 15.3146367,11.6062431 C15.3146367,9.69647885 13.9373745,8.36423783 11.967033,8.36423783 C9.6869723,8.36423783 8.3492488,10.0639936 8.3492488,11.8228143 C8.3492488,12.5053417 8.61283964,13.2403712 8.94232818,13.6406998 C9.00822589,13.719453 9.01481566,13.7916434 8.99504635,13.8703965 C8.93573841,14.1197816 8.79735322,14.6644909 8.77099414,14.7760579 C8.73804529,14.9204387 8.65237826,14.9532525 8.50081353,14.8810621 C7.49916835,14.4151059 6.87314012,12.9647352 6.87314012,11.7900005 C6.87314012,9.27646198 8.70509643,6.96636917 12.1647262,6.96636917 C14.9390197,6.96636917 17.1004646,8.93519827 17.1004646,11.5734293 C17.1004646,14.3232272 15.3607651,16.5348786 12.9489089,16.5348786 C12.1383671,16.5348786 11.3739537,16.1148617 11.1169526,15.6160917 C11.1169526,15.6160917 10.7149766,17.1386528 10.61613,17.5127304 C10.4382062,18.2083833 9.95056313,19.0746681 9.62107459,19.606252 C10.3723085,19.8359487 11.163081,19.9606412 11.9933921,19.9606412 C16.4151284,19.9606412 20,16.3904978 20,11.9868834 C20.0131433,7.57014343 16.4283079,4 12.0065717,4 Z"></path></svg></span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="color: rgb(0, 0, 0);"><path fill-rule="evenodd" d="M15.395 13.287c-.212-.105-1.252-.614-1.446-.684-.194-.07-.335-.106-.476.105-.14.21-.546.685-.67.825-.123.14-.246.158-.457.053-.212-.105-.893-.328-1.701-1.045-.629-.558-1.053-1.247-1.177-1.458-.123-.21-.013-.325.093-.43.095-.094.211-.245.317-.368.106-.123.141-.211.212-.351.07-.14.035-.264-.018-.37-.053-.104-.476-1.14-.652-1.562-.172-.41-.346-.355-.476-.361a8.522 8.522 0 00-.405-.008.779.779 0 00-.564.264c-.194.21-.74.72-.74 1.756s.757 2.037.863 2.177c.106.14 1.492 2.267 3.613 3.178.505.217.899.347 1.206.444.507.16.968.137 1.332.083.406-.06 1.251-.51 1.428-1 .176-.492.176-.914.123-1.002-.053-.088-.194-.14-.405-.246zm-3.86 5.244h-.002a7.05 7.05 0 01-3.581-.976l-.257-.151-2.663.695.711-2.584-.167-.265A6.96 6.96 0 014.5 11.524c.002-3.86 3.158-7.001 7.038-7.001 1.88 0 3.646.73 4.974 2.053a6.943 6.943 0 012.059 4.954c-.002 3.86-3.158 7.001-7.035 7.001zm5.988-12.96a8.43 8.43 0 00-5.987-2.47c-4.666 0-8.463 3.778-8.465 8.422 0 1.485.39 2.934 1.13 4.212L3 20.1l4.487-1.171a8.488 8.488 0 004.045 1.025h.004c4.665 0 8.462-3.78 8.464-8.424 0-2.25-.879-4.367-2.477-5.96z"></path></svg></span>
+                <span><svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24" style="color: rgb(0, 0, 0);"><path d="M13.303 10.771 19.123 4h-1.38L12.69 9.88 8.655 4H4l6.103 8.89L4 19.993h1.38l5.335-6.21 4.262 6.21h4.655l-6.33-9.22h.001Zm-1.889 2.198-.618-.885-4.92-7.045h2.118l3.97 5.686.619.885 5.16 7.39h-2.117l-4.212-6.03Z"></path></svg></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="description">
+        <strong>Delicious chicken flavor for picky eaters.</strong>
+    </div>
+
+  </div>
+
+  <script>
+  function increase() {
+      let qty = document.getElementById("qty");
+      qty.value = parseInt(qty.value) + 1;
+  }
+
+  function decrease() {
+      let qty = document.getElementById("qty");
+      if (qty.value > 1) {
+          qty.value = parseInt(qty.value) - 1;
+      }
+  }
+
+  function addToCart() {
+      alert("Product added to cart!");
+  }
+
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links ul');
+  
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+  
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+  </script>
+
+     <footer>
+    <div class="foot">
+      <div class="foot1">
+        <div><h1>K. Bartholomew</h1></div>
+        <div>
+          <pre style="font-size: 15px">
+123-456-7890
+info@mysite.com
+
+500 Terry Francine St.
+San Francisco, CA
+94158</pre
+          >
+        </div>
+      </div>
+
+      <div class="foot2">
+        <div class="Rules">
+          <a href="privacypolicy.html">Privacy Policy</a> <br />
+          <a href="#">Accessibility</a> <br />
+          <a href="#">Statement</a> <br />
+          <a href="#">Shipping Policy</a> <br />
+          <a href="#">Terms & Conditions</a> <br />
+          <a href="#">Refund Policy</a> <br />
+        </div>
+        <div class="stay-connected">
+          <h2>Stay Connected</h2>
+          <br />
+          <div class="maily">
+            <label>Your Email *</label>
+            <input type="email" />
+          </div>
+          <br />
+          <button class="subscribe" type="submit">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+    <p style="padding-left: 25px; font-size: small; font-weight: 600">
+      © 2035 by K. Bartholomew. Powered and secured by Wix
+    </p>
+  </footer>
+
+  </body>
+
+</html>

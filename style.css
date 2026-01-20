@@ -1,8 +1,13 @@
 body {
   background-color: rgb(252, 238, 221);
+  margin: 0;
+  padding: 0;
 }
 * {
   text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 header{
   position: sticky;
@@ -10,24 +15,27 @@ header{
   overflow: hidden;
   background-color: rgb(252, 238, 221);
   height: 6vh;
+  z-index: 1000;
 }
 .navbar {
   padding-left: 40px;
   padding-right: 40px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 10px;
- 
- 
 }
 .navdiv {
   display: flex;
-  
   justify-content: space-between;
+  align-items: center;
 }
 .logo a {
   font-size: 20px;
   font-weight: 400;
   color: rgb(102, 58, 58);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
 }
 li {
   list-style: none;
@@ -38,27 +46,79 @@ li a {
   font-size: 13px;
   font-weight: bold;
   margin-right: 25px;
+  transition: color 0.3s ease;
 }
+li a:hover {
+  color: #e6ff6a;
+}
+
+/* Burger Menu Styles */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(102, 58, 58);
+  transition: all 0.3s ease;
+}
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+  .nav-links ul {
+    position: fixed;
+    right: -100%;
+    top: 6vh;
+    flex-direction: column;
+    background-color: rgb(252, 238, 221);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+  }
+  .nav-links ul.active {
+    right: 0;
+  }
+  .nav-links li {
+    display: block;
+    margin: 15px 0;
+  }
+  .nav-links li a {
+    margin-right: 0;
+  }
+}
+
 .startpage {
   display: grid;
-  width: 1200px;
   width: 100%;
-  height: 80vh;
   height: 100%;
   grid-template-columns: 1fr 1fr;
   padding: 40px;
   font-size: 25px;
 }
-path  {
+path {
     fill: #E0BE9A;
     stroke: #5B4D43;
 }
 
 .startpage .kata img{
-
   height: 100%;
   width: 100%;
-  
 }
 
 .petfood {
@@ -77,7 +137,15 @@ path  {
   font-weight: bold;
 }
 
-.explore button {
+.petfood button a {
+  color: #5b4a3a;
+  transition: color 0.3s ease;
+}
+.petfood button:hover a {
+  color: #e6ff6a;
+}
+
+.petfood button {
   text-decoration: none;
   background-color: #e6ff6a;
   color: #5b4a3a;
@@ -87,6 +155,14 @@ path  {
   border: #333 solid 1px;
   max-width: 30%;
   font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.petfood button:hover {
+  background-color: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .choice {
@@ -108,6 +184,11 @@ path  {
 .products .card {
   height: 100%;
   width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.products .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .products .card img {
@@ -129,6 +210,13 @@ path  {
   font-weight: bold;
   font-size: 13px;
   color: #333;
+  transition: all 0.3s ease;
+}
+.payment:hover {
+  background-color: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .rabbit {
@@ -175,19 +263,16 @@ path  {
   white-space: nowrap;
   display: flex;
   flex-direction: row;
-}
-
-.running-line {
-  animation: run 6s linear infinite;
+  animation: run 10s linear infinite;
+  width: fit-content;
 }
 
 @keyframes run {
   from {
     transform: translateX(0%);
   }
-
   to {
-    transform: translateX(-50vw);
+    transform: translateX(-50%);
   }
 }
 
@@ -211,26 +296,36 @@ path  {
   width: 150px;
   height: 40px;
   border: #333 solid 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button a {
+  color: #5b4a3a;
+  transition: color 0.3s ease;
+}
+.button:hover {
+  background-color: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.button:hover a {
+  color: #e6ff6a;
 }
 
 .WhyUs {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-top: 25px;
-  padding-left: 38px;
+  padding: 25px 38px;
   color: #5b4a3a;
   background-color: rgb(224,190,154);
-  
-  /* height: 770px;
-  width: 800px; */
-  height: 100%;
   width: 100%;
   font-size: 24px;
-  height: auto;
 }
 .WhyUs h4 {
   font-size: 25px;
+  line-height: 1.6;
 }
 
 .comment {
@@ -241,39 +336,20 @@ path  {
   flex-direction: column;
   gap: 30px;
   align-items: center;
-  padding: 20px 0px;
+  padding: 40px 20px;
 }
 
-.recommendations1 {
+.recommendations1, .recommendations2, .recommendations3 {
   background-color: white;
-  height: 32%;
-  width: 50%;
-  padding: 25px;
-}
-
-.recommendations2 {
-  background-color: white;
- height: 32%;
-  width: 50%;
-  padding: 25px;
-}
-
-.recommendations3 {
-  background-color: white;
-  height: 32%;
   width: 50%;
   padding: 25px;
 }
 
 .cube {
   display: flex;
-  
   padding: 0px 5px;
   width: 100%;
-  height: 100%;
-  /* height: 85vh; */
-  
-  
+  min-height: 500px;
 }
 
 .Contact {
@@ -285,7 +361,6 @@ path  {
   background-color: rgb(91,77,67);
   color: white;
   font-weight: bold;
-  
 }
 
 h3 {
@@ -341,20 +416,21 @@ button {
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sakontakto {
   display: grid;
   grid-template-columns: 1.21fr 1fr;
   width: 100%;
-  /* height:50vh; */
   max-height: 100%;
   gap: 7%;
-}
-
-.form-wrapper .forma .input{
-  grid-template-columns: 1fr;
-  display: grid;
 }
 
 footer{
@@ -373,7 +449,7 @@ footer{
 .Rules a {
   text-decoration: none;
   color: #5b4a3a;
-  font-weight: bold;
+  font-weight:  100px bold;
   font-size: small;
 }
 
@@ -383,9 +459,7 @@ footer{
   margin-left: 20px;
 }
 
-.foot,
-.foot1,
-.foot2 {
+.foot, .foot1, .foot2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
@@ -400,6 +474,13 @@ footer{
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.subscribe:hover {
+  background: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media screen and (max-width: 1085px) {
@@ -408,78 +489,238 @@ footer{
   }
 }
 
-@media screen and (max-width: 900px) {
-  .foot1,
-  .foot2 {
+@media screen and (max-width: 1000px) {
+  .startpage {
     grid-template-columns: 1fr;
+    padding: 0px;
+    gap: 0px;
   }
-
-  .foot2 .rules {
-    grid-row: 2;
-    grid-column: 1;
+  
+  .petfood {
+    padding: 40px 20px;
   }
+  
+  .petfood h1 {
+    font-size: 32px;
+  }
+  
+  .petfood button {
+    max-width: 50%;
+  }
+  
+  .kata {
+    width: 100%;
+    display: flex;
+  }
+  
+  .kata img {
+    max-height: 500px;
+    object-fit: cover;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cube {
+    min-height: auto;
+  }
+  
+  .WhyUs {
+    padding: 30px;
+  }
+  
+  .WhyUs h1 {
+    font-size: 28px;
+  }
+  
+  .WhyUs h4 {
+    font-size: 18px;
+  }
+  
+  .comment {
+    padding: 30px 15px;
+  }
+  
+  .recommendations1, .recommendations2, .recommendations3 {
+    width: 70%;
+    padding: 20px;
+  }
+  
+  .recommendations1 h2, .recommendations2 h2, .recommendations3 h2 {
+    font-size: 20px;
+  }
+  
+  .recommendations1 p, .recommendations2 p, .recommendations3 p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
 
-  .foot2 .stay-connected {
-    grid-row: 1;
-    grid-column: 1;
+@media screen and (max-width: 900px) {
+  .foot1, .foot2 {
+    grid-template-columns: 1fr;
   }
 }
 
 @media screen and (max-width: 768px){
-  
   .startpage {
-  display: grid;
-  padding: 0px;
-  align-items: center;
-  width: 100%;
-  grid-template-columns: 1fr;
-  height: 10%;
-}
- .products{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  
-}
-
-
-.rabbit{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.cube{
-  display: grid;
-  grid-template-columns: 1fr;
-  padding: 0%;
-}
-
-.sakontakto{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0%;
-}
-
-.form-wrapper .forma {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 5%;
-  align-items: center;
-
-}
-
-.foot{
+    display: grid;
+    padding: 0px;
+    align-items: center;
+    width: 100%;
+    grid-template-columns: 1fr;
+    height: 10%;
+  }
+  .products{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .rabbit{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cube{
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0%;
+  }
+  .WhyUs {
+    padding: 25px;
+  }
+  .sakontakto{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0%;
+  }
+  .form-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .form-wrapper .forma {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 5%;
+    align-items: center;
+  }
+  .foot{
     grid-template-columns: 1fr;
     display: grid;
   }
- .foot .foot2 .rules {
-    grid-row: 2;
-    grid-column: 1;
-  }
+}
 
-  .foot .foot2 .stay-connected {
-    grid-row: 3;
-    grid-column: 1;
+@media screen and (max-width: 320px){
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
   }
-  
-  
+  .logo a {
+    font-size: 16px;
+  }
+  .petfood h1 {
+    font-size: 20px;
+  }
+  .petfood button {
+    max-width: 50%;
+    font-size: 11px;
+    padding: 10px 20px;
+  }
+  .products {
+    grid-template-columns: 1fr;
+    margin: 0px 20px;
+  }
+  .payment {
+    width: 120px;
+    font-size: 12px;
+  }
+  .rabbit {
+    padding: 20px;
+  }
+  .About p {
+    font-size: 16px;
+  }
+  .animacia {
+    font-size: 20px;
+    gap: 20px;
+    width: 250px;
+  }
+  .animacia img {
+    max-width: 25px;
+    max-height: 25px;
+  }
+  .animals {
+    padding: 20px;
+  }
+  .animals h1 {
+    font-size: 24px;
+  }
+  .animals h3 {
+    font-size: 14px;
+  }
+  .button {
+    width: 130px;
+    font-size: 13px;
+  }
+  .WhyUs {
+    padding: 20px;
+    font-size: 18px;
+  }
+  .WhyUs h1 {
+    font-size: 24px;
+  }
+  .WhyUs h4 {
+    font-size: 16px;
+  }
+  .recommendations1, .recommendations2, .recommendations3 {
+    width: 80%;
+    padding: 20px;
+  }
+  .recommendations1 h2, .recommendations2 h2, .recommendations3 h2 {
+    font-size: 18px;
+  }
+  .recommendations1 p, .recommendations2 p, .recommendations3 p {
+    font-size: 13px;
+  }
+  .Contact {
+    padding: 20px;
+  }
+  .Contact h1 {
+    font-size: 24px;
+  }
+  .Contact img {
+    max-width: 100%;
+  }
+  .form-wrapper {
+    padding: 20px;
+  }
+  .form-wrapper h3 {
+    font-size: 18px;
+  }
+  .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  input {
+    width: 100%;
+  }
+  button, .subscribe {
+    width: 100%;
+    font-size: 14px;
+  }
+  .foot1 {
+    gap: 20px;
+    margin-left: 10px;
+  }
+  .foot1 h1 {
+    font-size: 20px;
+  }
+  .foot1 pre {
+    font-size: 12px;
+  }
+  .foot2 {
+    gap: 20px;
+    margin-left: 10px;
+  }
+  .foot2 h2 {
+    font-size: 18px;
+  }
 }

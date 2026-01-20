@@ -8,53 +8,45 @@
     <link rel="stylesheet" href="./About.css">
 </head>
 <body>
-    
     <header>
         <nav class="navbar">
             <div class="navdiv">
                 <div class="logo"><a style="font-weight: bold; font-size: 18px" href="index.html">K. Bartholomew</a></div>
-                <ul>
-                    <li><a href="index.html">Home</a> </li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="./contact.html">Contact</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <a href=""><span class="cart">🛒 0</span></a>
-</li>
-                </ul>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href=""><span class="cart">🛒 0</span></a></li>
+                    </ul>
+                </div>
+                <div class="burger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </nav>
     </header>
 
-<div class="gverdi">
-<div class="knuti"><img src="./pictures/saxli.avif" alt="katebi saxlshi"></div>
- <div class="info">
-    <h1>Our Story</h1>
+    <div class="gverdi">
+        <div class="knuti"><img src="./pictures/saxli.avif" alt="katebi saxlshi"></div>
+        <div class="info">
+            <h1>Our Story</h1>
+            <h3>Quality Food</h3>
+            <p>At K. Bartholomew, we are dedicated to producing a <br>diverse range of pet food that meets the nutritional <br>needs of all pets.</p>
+            <h3>Our Commitment</h3>
+            <p>We set ourselves apart through our unwavering <br>commitment to quality ingredients. Our vibrant and <br>appetizing visual direction, rich in reds and greens, <br>showcases pets enjoying our food, creating an <br>inviting atmosphere that emphasizes nutrition and <br>satisfaction.</p>
+            <a href="#" class="btn">Learn More</a>
+        </div> 
+    </div>
 
-    <h3>Quality Food</h3>
-    <p>
-        At K. Bartholomew, we are dedicated to producing a <br>
-        diverse range of pet food that meets the nutritional <br>
-        needs of all pets.
-    </p>
-    <h3>Our Commitment</h3>
-    <p>
-        We set ourselves apart through our unwavering <br>
-        commitment to quality ingredients. Our vibrant and <br>
-        appetizing visual direction, rich in reds and greens, <br>
-        showcases pets enjoying our food, creating an <br>
-        inviting atmosphere that emphasizes nutrition and <br>
-        satisfaction.
-    </p>
-    <a href="#" class="btn">Learn More</a>
-    
-
- </div> 
-</div>
-<footer>
+    <footer>
     <div class="foot">
       <div class="foot1">
-        <div><h2>K. Bartholomew</h2></div>
+        <div><h1>K. Bartholomew</h1></div>
         <div>
           <pre style="font-size: 15px">
 123-456-7890
@@ -79,8 +71,10 @@ San Francisco, CA
         <div class="stay-connected">
           <h2>Stay Connected</h2>
           <br />
-          <div>
+          <div class="maily">
             <label>Your Email *</label>
+            <br>
+            <br>
             <input type="email" />
           </div>
           <br />
@@ -97,5 +91,22 @@ San Francisco, CA
       © 2035 by K. Bartholomew. Powered and secured by Wix
     </p>
   </footer>
+
+    <script>
+      const burger = document.querySelector('.burger');
+      const navLinks = document.querySelector('.nav-links ul');
+      
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+      
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    </script>
 </body>
 </html>

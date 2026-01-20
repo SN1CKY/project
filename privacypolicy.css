@@ -1,5 +1,13 @@
 body{
     background-color: rgb(252, 238, 221);
+    margin: 0;
+    padding: 0;
+}
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 header{
   position: sticky;
@@ -7,9 +15,7 @@ header{
   overflow: hidden;
   background-color: rgb(252, 238, 221);
   height: 6vh;
-}
-* {
-  text-decoration: none;
+  z-index: 1000;
 }
 .navbar{
     padding-left: 40px;
@@ -27,6 +33,10 @@ header{
     font-weight: 400;
     color: rgb(102, 58, 58);
 }
+.nav-links {
+  display: flex;
+  align-items: center;
+}
 li{
     list-style: none;
     display: inline-block;
@@ -36,24 +46,83 @@ li a{
     font-size: 13px;
     font-weight: bold;
     margin-right: 25px;
+    transition: color 0.3s ease;
 }
+li a:hover {
+  color: #e6ff6a;
+}
+
+/* Burger Menu Styles */
+.burger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(102, 58, 58);
+  transition: all 0.3s ease;
+}
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+@media screen and (max-width: 768px) {
+  .burger {
+    display: flex;
+  }
+  .nav-links ul {
+    position: fixed;
+    right: -100%;
+    top: 6vh;
+    flex-direction: column;
+    background-color: rgb(252, 238, 221);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+  }
+  .nav-links ul.active {
+    right: 0;
+  }
+  .nav-links li {
+    display: block;
+    margin: 15px 0;
+  }
+  .nav-links li a {
+    margin-right: 0;
+  }
+}
+
 .wesebi{
     align-items: center;
     justify-content: center;
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
     height: 100%;
     width: 100%;
+    padding: 40px;
 }
 
-.satauri{font-size: 40px;
-height: 100%;
-align-items: center;
-text-align: center;
-
+.satauri{
+    font-size: 40px;
+    height: 100%;
+    align-items: center;
+    text-align: center;
 }
 .wesebi1{
-text-align: center;}
+    text-align: center;
+    line-height: 1.8;
+}
 footer{
   margin-top: 2%;
   width: 100%;
@@ -72,6 +141,10 @@ footer{
   color: #5b4a3a;
   font-weight: bold;
   font-size: small;
+  transition: color 0.3s ease;
+}
+.Rules a:hover {
+  color: #e6ff6a;
 }
 
 .foot2 {
@@ -97,23 +170,19 @@ footer{
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
-
-
-@media screen and (max-width: 768px){
-.foot{
-    grid-template-columns: 1fr;
-    display: grid;
-  }
- .foot .foot2 .rules {
-    grid-row: 2;
-    grid-column: 1;
-  }
-
-  .foot .foot2 .stay-connected {
-    grid-row: 3;
-    grid-column: 1;
-  }
+.subscribe:hover {
+  background: #5b4a3a;
+  color: #e6ff6a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.maily input{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: #333 solid 1px;
+   } 
 
 @media screen and (max-width: 1085px) {
   .navdiv {
@@ -126,18 +195,44 @@ footer{
   .foot2 {
     grid-template-columns: 1fr;
   }
+}
 
-  .foot2 .rules {
-    grid-row: 2;
-    grid-column: 1;
+@media screen and (max-width: 768px){
+  .wesebi {
+    padding: 25px;
   }
-
-  .foot2 .stay-connected {
-    grid-row: 1;
-    grid-column: 1;
+  .satauri {
+    font-size: 32px;
+  }
+  .foot{
+    grid-template-columns: 1fr;
+    display: grid;
   }
 }
 
-
-
+@media screen and (max-width: 320px) {
+  .navbar {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .logo a {
+    font-size: 16px;
+  }
+  .wesebi {
+    padding: 20px;
+  }
+  .satauri {
+    font-size: 24px;
+  }
+  .wesebi1 {
+    font-size: 14px;
+  }
+  .foot1 {
+    gap: 20px;
+    margin-left: 10px;
+  }
+  .foot2 {
+    gap: 20px;
+    margin-left: 10px;
+  }
 }

@@ -13,20 +13,23 @@
       <nav class="navbar">
         <div class="navdiv">
           <div class="logo">
-            <a style="font-weight: bold; font-size: 18px" href="index.html"
-              >K. Bartholomew</a
-            >
+            <a style="font-weight: bold; font-size: 18px" href="index.html">K. Bartholomew</a>
           </div>
-          <ul>
-            <li><a href="index.html">Home</a> </li>
-            <li><a href="./about.html">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="./contact.html">Contact</a></li>
-            <li><a href="#">Shop</a></li>
-            <li>
-              <a href=""><span class="cart">🛒 0</span></a>
-            </li>
-          </ul>
+          <div class="nav-links">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="./about.html">About</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="./contact.html">Contact</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href=""><span class="cart">🛒 0</span></a></li>
+            </ul>
+          </div>
+          <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </nav>
     </header>
@@ -157,7 +160,7 @@
 
     <section class="products">
       <div class="card">
-        <img src="./pictures/chickenfood.png" alt="chickenfood" />
+        <a href="./cddf.html"><img src="./pictures/chickenfood.png" alt="chickenfood" /></a>
         <h3>Chicken Delight Dog Food</h3>
         <p class="price">€50.00</p>
       </div>
@@ -203,40 +206,25 @@
 
     <hr style="color: #5b4a3a" />
 
-    <div class="running-line-wrapper">
+     <div class="running-line-wrapper">
       <div class="running-line">
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
-
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
-
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
-
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
-
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
-
-        <div class="animacia">
-          <p>New Arrival</p>
-          <img src="./pictures/footprint.png" alt="footprint" />
-        </div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>  
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
+        <div class="animacia"><p>New Arrival</p><img src="./pictures/footprint.png" alt="footprint" /></div>
       </div>
     </div>
-
     <hr style="color: #5b4a3a" />
 
     <div class="animals" ;>
@@ -372,7 +360,7 @@ San Francisco, CA
         <div class="stay-connected">
           <h2>Stay Connected</h2>
           <br />
-          <div>
+          <div class="maily">
             <label>Your Email *</label>
             <input type="email" />
           </div>
@@ -390,6 +378,24 @@ San Francisco, CA
       © 2035 by K. Bartholomew. Powered and secured by Wix
     </p>
   </footer>
+
+  <script>
+      const burger = document.querySelector('.burger');
+      const navLinks = document.querySelector('.nav-links ul');
+
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      });
+
+      // Close menu when clicking on a link
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          burger.classList.remove('active');
+          navLinks.classList.remove('active');
+        });
+      });
+    </script>
   </body>
 
   
